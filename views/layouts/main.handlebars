@@ -2,14 +2,76 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
-  <title>Home Page</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Title -->
+    <title>BarCode-It</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" media="screen" href="reset.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css">
 </head>
 
 <body>
-  {{{body}}}
+
+    <!-- Header Content -->
+    <div class="header">
+
+        <!-- Logo -->
+        <img class="logo" src="barcode-it-logo.png" alt="Logo">
+
+        <!-- Authentication -->
+        <div class="authenticationBar">
+            <a class="login unlink" href="#">Login</a>
+            <a class="line unlink" href="#">|</a>
+            <a class="signup unlink" href="#">Sign up</a>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="nav-content">
+            <a class="home unlink" href="#">Home</a>
+            <a class="line unlink" href="#">|</a>
+
+            <!-- Dropdown -->
+            <div class="dropdown">
+                <a class="dropbtn unlink" href="#">Profile</a>
+                <div class="dropdown-content">
+                    <a class="containers unlink" href="#">Containers</a>
+                    <a class="information unlink" href="#">Information</a>
+                </div>
+            </div>
+
+            <a class="line unlink" href="#">|</a>
+            <a class="make-barcode unlink" href="#">Make Barcode</a>
+            <a class="line unlink" href="#">|</a>
+            <a class="find-barcode unlink" href="#">Find Barcode</a>
+
+            <!-- Search Bar -->
+            <form class="searchbar" action="/action_page.php">
+                <input type="text" placeholder="Search.." name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+    </div>
+
+    <!--  Content -->
+    <div class="body-content">
+        <!-- {{body}} -->
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <a class="github" href="https://github.com/Milleniyum/Project2">Check us out on Github!</a>
+        <hr>
+        <p class="copyright">&copy; 2019</p>
+    </div>
+
 </body>
 
 </html>
