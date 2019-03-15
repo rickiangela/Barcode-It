@@ -1,0 +1,108 @@
+.header {
+    height: 100px;
+    width: 100%;
+    background-color: #F8F7FA;
+}
+
+.unlink {
+    text-decoration: none;
+}
+
+.logo {
+    height: 80px;
+    width: auto;
+    margin: 10px;
+}
+
+.authenticationBar {
+    float: right;
+    padding-top: 60px;
+    padding-right: 20px;
+}
+
+.navbar {
+    background-color: #866487;
+    height: 40px;
+    width: 100%;
+}
+
+.nav-content {
+    padding-top: 10px;
+}
+
+.home {
+    padding-left: 10px;
+}
+
+.searchbar {
+    float: right;
+    padding-right: 20px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+.topnav .search-container {
+    float: right;
+}
+
+.topnav input[type=text] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+}
+
+.topnav .search-container button {
+    float: right;
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+
+.topnav .search-container button:hover {
+    background: #ccc;
+}
+
+.body-content {
+    height: 100px;
+    width: 100%;
+}
+
+.copyright {
+    text-align: center;
+}
