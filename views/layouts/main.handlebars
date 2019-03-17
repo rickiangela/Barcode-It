@@ -5,15 +5,23 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Title -->
     <title>BarCode-It</title>
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+
+    <!-- Materialize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" media="screen" href="reset.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/styles.css">
+
 </head>
 
 <body>
@@ -22,47 +30,35 @@
     <div class="header">
 
         <!-- Logo -->
-        <img class="logo" src="barcode-it-logo.png" alt="Logo">
+        <img class="logo" src="/images/barcode-it-logo.png" alt="Logo">
 
         <!-- Authentication -->
         <div class="authenticationBar">
             <a class="login unlink" href="#">Login</a>
             <a class="line unlink" href="#">|</a>
-            <a class="signup unlink" href="#">Sign up</a>
+            <a class="signup unlink" href="#">Register</a>
         </div>
     </div>
 
     <!-- Navbar -->
     <div class="navbar">
         <div class="nav-content">
-            <a class="home unlink" href="#">Home</a>
-            <a class="line unlink" href="#">|</a>
 
-            <!-- Dropdown -->
-            <div class="dropdown">
-                <a class="dropbtn unlink" href="#">Profile</a>
-                <div class="dropdown-content">
-                    <a class="containers unlink" href="#">Containers</a>
-                    <a class="information unlink" href="#">Information</a>
-                </div>
-            </div>
-
-            <a class="line unlink" href="#">|</a>
-            <a class="make-barcode unlink" href="#">Make Barcode</a>
-            <a class="line unlink" href="#">|</a>
-            <a class="find-barcode unlink" href="#">Find Barcode</a>
+            <a class="make-barcode unlink" href="/barcodes">Barcodes</a>
+            <span> | </span>
+            <a class="find-barcode unlink" href="#">Inventory</a>
 
             <!-- Search Bar -->
-            <form class="searchbar" action="/action_page.php">
-                <input type="text" placeholder="Search.." name="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
+            <form class="searchbar" action="/barcodes" method="GET">
+                <input id="barcode-number" type="text" placeholder="Barcode Number..." name="barcode">
+                <button id="submit-button" type="submit"><i class="fa fa-search"></i></button>
             </form>
         </div>
     </div>
 
     <!--  Content -->
     <div class="body-content">
-        <!-- {{body}} -->
+        {{{body}}}
     </div>
 
     <!-- Footer -->
@@ -72,6 +68,7 @@
         <p class="copyright">&copy; 2019</p>
     </div>
 
+    <script src="/javascript/main.js"></script>
 </body>
 
 </html>
