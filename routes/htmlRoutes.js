@@ -14,4 +14,8 @@ module.exports = function(app) {
             res.render("barcodes");
         };
     });
+
+    app.get("/camera", function(req, res) {
+        res.render("camera");
+    })
 };
