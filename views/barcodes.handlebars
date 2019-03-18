@@ -1,35 +1,62 @@
 <div class="container mrt100">
 
 <h4>Create a Barcode</h4>
-*All fields are optional.
+* All fields are optional
 <div class="row">
-      <form class="col s12">
-        <div class="row">
-          <div class="input-field col s4">
-              <i class="material-icons prefix">mode_edit</i>
-            <input id="input_text" type="text" data-length="10">
-            <label for="input_text">Title</label>
-          </div>
-          <div class="input-field col s4">
-              <i class="material-icons prefix">mode_edit</i>
-            <textarea id="textarea2" class="materialize-textarea" data-length="120"></textarea>
-            <label for="textarea2">Description</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s4">
-              <i class="material-icons prefix">photo</i>
-            <input id="input_text" type="text" data-length="10">
-            <label for="input_text">Photo URL</label>
-          </div>
-        </div>
-      </form>
+    <div class="input-field col s4">
+        <i class="material-icons prefix">mode_edit</i>
+        <input id="barcode-title" type="text">
+        <label for="barcode-title">Title</label>
     </div>
-
-    <h4>Existing Barcodes</h4>
-
-<img id="barcode" />
+    <div class="input-field col s4">
+        <i class="material-icons prefix">mode_edit</i>
+        <textarea id="barcode-description" class="materialize-textarea"></textarea>
+        <label for="barcode-description">Description</label>
+    </div>
+</div>
+<div class="row">
+    <div class="input-field col s4">
+        <i class="material-icons prefix">photo</i>
+        <input id="photo-url" type="text">
+        <label for="photo-url">Photo URL</label>
+    </div>
 </div>
 
-<script src="javascript/JsBarcode.all.min.js"></script>
-<script src="javascript/barcodes.js"></script>
+<button id="add-barcode" class="btn waves-effect waves-light">Create
+    <i class="material-icons right">send</i>
+</button>
+
+<h4>Existing Barcodes</h4>
+<strong>*Click a barcode to edit or view associated items</strong><br><br>
+
+{{#each barcodes}}
+<div class="row barcodeRow">
+    <div class="col s12">
+        <img class="barcode" data-id="{{barcode_num}}" />
+        <p>Title: {{title}}</p>
+        <p>Description: {{description}}</p>
+    </div>
+</div>
+{{/each}}
+
+<style>
+    #add-barcode {
+        margin-left: 55px;
+    }
+    .barcodeInfo p {
+        margin-left: 5px;
+    }
+
+    .barcode {
+        float: left;
+        width: 150px;
+        cursor: pointer;
+    }
+    
+    .barcode:hover {
+        opacity: 0.5;
+    }
+</style>
+
+<script src="/javascript/JsBarcode.all.min.js"></script>
+<script src="/javascript/barcodes.js"></script>

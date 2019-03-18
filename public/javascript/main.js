@@ -1,3 +1,4 @@
+var userId = 1;
 var textEntry = '';
 document.addEventListener("keydown", function(e) {
     const targetName = e.target.localName;
@@ -9,4 +10,12 @@ document.addEventListener("keydown", function(e) {
             textEntry = "";
         };
     } else textEntry = "";
+});
+
+$("#barcodes-display").on("click", function() {
+    window.location.href = window.location.origin + "/barcodes/" + userId;
+});
+
+$("#camera-barcode").on("click", function() {
+    window.location.href = window.location.origin + "/camera";
 });
