@@ -18,4 +18,12 @@ module.exports = function(app) {
     app.get("/camera", function(req, res) {
         res.render("camera");
     })
+
+    app.get("/registration", function(req, res) {
+        res.render("registration");
+    })
+
+    app.get("/signin", function (req, res) {
+        res.render("signin");
+    })
 };
