@@ -14,3 +14,63 @@ footer {
     width: 100%;    
 }
 
+
+    .mrb20 {
+        margin-bottom: 20px;
+    }
+
+    .gr1 {
+        background-color: rgb(245, 243, 243)
+    }
+
+    .pdt10 {
+        padding-top: 10px
+    }
+
+    .pdl10 {
+        padding-left: 10px
+    }
+
+    .pdr10 {
+        padding-right: 10px
+    }
+
+    .mrl10 {
+        margin-left: 10px
+    }
+
+    .mrb10 {
+        margin-bottom: 10px
+    }
+
+    h2 {
+        font-family: 'ZCOOL XiaoWei', serif;
+    }
+
+    .smallbrdr {
+        border-bottom: black solid 1px;
+        /* padding-left: 10%;
+            padding-right: 10%; */
+        margin-right: 10%;
+        margin-left: 10%;
+    }
+
+    .allbrdr {
+        border: black solid 1px;
+    }
+
+    .rbrdr {
+        border-right: blue solid 1px
+    }
+
+    .mrt50 {
+        margin-top: 50px;
+    }
+
+    .mrb50 {
+        margin-bottom: 50px;
+    }
+
+    .mrt100 {
+        margin-top: 100px;
+    }
