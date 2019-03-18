@@ -1,9 +1,8 @@
 module.exports = function(sequelize, DataTypes) {
     var Barcode = sequelize.define('Barcode', {
         barcode_num: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false,
-            unique: true
         },
         title: {
             type: DataTypes.STRING,
