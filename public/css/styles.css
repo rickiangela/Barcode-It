@@ -32,11 +32,16 @@ body {
     position: relative;
     padding-top: 5px;
     padding-left: 5px;
-    font-size: 20px;
 }
 
-.nav-content a {
+.nav-content label {
     color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.nav-content label:hover {
+    color: blue;
 }
 
 .home {
@@ -45,7 +50,7 @@ body {
 
 .searchbar {
     position: absolute;
-    top: 4px;
+    top: 7px;
     right: 0;
     padding-right: 10px;
 }
