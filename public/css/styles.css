@@ -1,3 +1,6 @@
+body {
+    padding: 5px;
+}
 
 .page-footer {
     position: fixed;
@@ -6,70 +9,69 @@
     width: 100%;
 }
 
-
-
 footer {
     position: fixed;
     bottom: 0;
-    width: 100%;    
+    left: 0;
+    width: 100%;
 }
 
-    .mrb20 {
-        margin-bottom: 20px;
-    }
+.mrb20 {
+    margin-bottom: 20px;
+}
 
-    .gr1 {
-        background-color: rgb(245, 243, 243)
-    }
+.gr1 {
+    background-color: rgb(245, 243, 243)
+}
 
-    .pdt10 {
-        padding-top: 10px
-    }
+.pdt10 {
+    padding-top: 10px
+}
 
-    .pdl10 {
-        padding-left: 10px
-    }
+.pdl10 {
+    padding-left: 10px
+}
 
-    .pdr10 {
-        padding-right: 10px
-    }
+.pdr10 {
+    padding-right: 10px
+}
 
-    .mrl10 {
-        margin-left: 10px
-    }
+.mrl10 {
+    margin-left: 10px
+}
 
-    .mrb10 {
-        margin-bottom: 10px
-    }
+.mrb10 {
+    margin-bottom: 10px
+}
 
-    h2 {
-        font-family: 'ZCOOL XiaoWei', serif;
-    }
+h2 {
+    font-family: 'ZCOOL XiaoWei', serif;
+}
 
-    .smallbrdr {
-        border-bottom: black solid 1px;
-        /* padding-left: 10%;
+.smallbrdr {
+    border-bottom: black solid 1px;
+    /* padding-left: 10%;
             padding-right: 10%; */
-        margin-right: 10%;
-        margin-left: 10%;
-    }
+    margin-right: 10%;
+    margin-left: 10%;
+}
 
-    .allbrdr {
-        border: black solid 1px;
-    }
+.allbrdr {
+    border: black solid 1px;
+}
 
-    .rbrdr {
-        border-right: blue solid 1px
-    }
+.rbrdr {
+    border-right: blue solid 1px
+}
 
-    .mrt50 {
-        margin-top: 50px;
-    }
+.mrt50 {
+    margin-top: 50px;
+}
 
-    .mrb50 {
-        margin-bottom: 50px;
-    }
+.mrb50 {
+    margin-bottom: 50px;
+}
 
-    .mrt100 {
-        margin-top: 100px;
-    }
+.mrt100 {
+    margin-top: 100px;
+}

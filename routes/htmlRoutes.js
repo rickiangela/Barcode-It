@@ -1,10 +1,31 @@
 var db = require("../models");
+var fs = require("fs");
 
 module.exports = function(app) {
-    // Load index page
+    // Load sign-in page
     app.get("/", function(req, res) {
-        res.render("index");
+        fs.readFile(__dirname.slice(0, -6) + "public/html/sign-in.html", function(err, data) {
+            if (err) return res.render("404");
+            // We then respond to the client with the HTML page by specifically telling the browser that we are delivering
+            // an html file.
+            res.writeHead(200, { "Content-Type": "text/html" });
+            res.end(data);
+        });
     });
+
+    app.get("/registration", function(req, res) {
+        fs.readFile(__dirname.slice(0, -6) + "public/html/registration.html", function(err, data) {
+            if (err) return res.render("404");
+            // We then respond to the client with the HTML page by specifically telling the browser that we are delivering
+            // an html file.
+            res.writeHead(200, { "Content-Type": "text/html" });
+            res.end(data);
+        });
+    });
+
+    app.get("/index", function(req, res) {
+        res.render("index");
+    })
 
     app.get("/barcodes", function(req, res) {
         if (req.query.barcode) {
@@ -24,13 +45,5 @@ module.exports = function(app) {
 
     app.get("/camera", function(req, res) {
         res.render("camera");
-    })
-
-    app.get("/registration", function(req, res) {
-        res.render("registration");
-    })
-
-    app.get("/signin", function (req, res) {
-        res.render("signin");
     })
 };
