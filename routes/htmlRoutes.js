@@ -6,8 +6,6 @@ module.exports = function(app) {
     app.get("/", function(req, res) {
         fs.readFile(__dirname.slice(0, -6) + "public/html/sign-in.html", function(err, data) {
             if (err) return res.render("404");
-            // We then respond to the client with the HTML page by specifically telling the browser that we are delivering
-            // an html file.
             res.writeHead(200, { "Content-Type": "text/html" });
             res.end(data);
         });
@@ -16,8 +14,6 @@ module.exports = function(app) {
     app.get("/registration", function(req, res) {
         fs.readFile(__dirname.slice(0, -6) + "public/html/registration.html", function(err, data) {
             if (err) return res.render("404");
-            // We then respond to the client with the HTML page by specifically telling the browser that we are delivering
-            // an html file.
             res.writeHead(200, { "Content-Type": "text/html" });
             res.end(data);
         });
@@ -29,15 +25,27 @@ module.exports = function(app) {
 
     app.get("/barcodes", function(req, res) {
         if (req.query.barcode) {
-            //find one from database to get item name, description, photo
-            return res.render("scanned", { barcode: req.query.barcode });
-        };
-        res.render("404");
+            db.Barcode.findOne({
+                where: { barcode_num: req.query.barcode, UserId: 1 }
+            }).then(function(result) {
+                if (result) {
+                    return res.render("scanned", { data: result });
+                } else {
+                    return res.render("404");
+                }
+            });
+        } else {
+            res.render("404");
+        }
+
     });
 
     app.get("/barcodes/:userId", function(req, res) {
         db.Barcode.findAll({
-            where: { UserId: req.params.userId }
+            where: { UserId: req.params.userId },
+            order: [
+                ['id', 'DESC']
+            ]
         }).then(function(result) {
             res.render("barcodes", { barcodes: result });
         });
