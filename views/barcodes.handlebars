@@ -1,5 +1,3 @@
-<div class="container mrt100">
-
 <h4>Create a Barcode</h4>
 * All fields are optional
 <div class="row">
@@ -30,12 +28,11 @@
 <strong>*Click a barcode to edit or view associated items</strong><br><br>
 
 {{#each barcodes}}
-<div class="row barcodeRow">
-    <div class="col s12">
+<div class="barcodeRow">
         <img class="barcode" data-id="{{barcode_num}}" />
         <p>Title: {{title}}</p>
         <p>Description: {{description}}</p>
-    </div>
+        <p>Photo URL: {{#if photo_url}}<a href={{photo_url}} target="_blank">View Photo</a>{{/if}}</p>
 </div>
 {{/each}}
 
@@ -43,8 +40,12 @@
     #add-barcode {
         margin-left: 55px;
     }
-    .barcodeInfo p {
-        margin-left: 5px;
+    .barcodeRow {
+        display: inline-block;
+        width: 450px;
+    }
+    .barcodeRow p {
+        margin: 5px;
     }
 
     .barcode {
@@ -60,3 +61,4 @@
 
 <script src="/javascript/JsBarcode.all.min.js"></script>
 <script src="/javascript/barcodes.js"></script>
+</div>

@@ -1,0 +1,1 @@
+$("#scanned-barcode").JsBarcode($("#scanned-barcode").data("id"));

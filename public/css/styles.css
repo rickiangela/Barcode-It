@@ -2,6 +2,14 @@ body {
     padding: 5px;
 }
 
+.body-content {
+    margin-bottom: 55px;
+}
+
+.brand-logo {
+    height: 100%;
+}
+
 .page-footer {
     position: fixed;
     bottom: 0;
@@ -73,5 +81,5 @@ h2 {
 }
 
 .mrt100 {
-    margin-top: 100px;
+    margin-top: 40px;
 }
