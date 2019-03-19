@@ -1,32 +1,33 @@
 var db = require("../models");
-var fs = require("fs");
+var path = require("path");
 
 module.exports = function(app) {
     // Load sign-in page
     app.get("/", function(req, res) {
-        fs.readFile(__dirname.slice(0, -6) + "public/html/sign-in.html", function(err, data) {
-            if (err) return res.render("404");
-            res.writeHead(200, { "Content-Type": "text/html" });
-            res.end(data);
-        });
+        // If the user already has an account send them to the members page
+        // if (req.user) {
+        //     res.redirect("/members");
+        // }
+        res.sendFile(path.join(__dirname, "../public/html/sign-in.html"));
     });
 
     app.get("/registration", function(req, res) {
-        fs.readFile(__dirname.slice(0, -6) + "public/html/registration.html", function(err, data) {
-            if (err) return res.render("404");
-            res.writeHead(200, { "Content-Type": "text/html" });
-            res.end(data);
-        });
+        // If the user already has an account send them to the members page
+        // if (req.user) {
+        //     res.redirect("/members");
+        // }
+        res.sendFile(path.join(__dirname, "../public/html/registration.html"));
     });
 
     app.get("/index", function(req, res) {
         res.render("index");
     })
 
-    app.get("/barcodes", function(req, res) {
+    app.get("/barcode", function(req, res) {
+        var userId = 1; //replace with req.user.id when passport implemented
         if (req.query.barcode) {
             db.Barcode.findOne({
-                where: { barcode_num: req.query.barcode, UserId: 1 }
+                where: { barcode_num: req.query.barcode, userId: 1 }
             }).then(function(result) {
                 if (result) {
                     return res.render("scanned", { data: result });
@@ -37,19 +38,34 @@ module.exports = function(app) {
         } else {
             res.render("404");
         }
-
     });
 
-    app.get("/barcodes/:userId", function(req, res) {
+    app.get("/barcodes/user", function(req, res) {
+        var userId = 1; //replace with req.user.id when passport implemented
+
         db.Barcode.findAll({
-            where: { UserId: req.params.userId },
+            where: { UserId: userId },
             order: [
                 ['id', 'DESC']
             ]
         }).then(function(result) {
             res.render("barcodes", { barcodes: result });
         });
-    })
+    });
+
+    app.get("/inventory/user", function(req, res) {
+        var userId = 1; //replace with req.user.id when passport implemented
+
+        db.Item.findAll({
+            where: { UserId: userId },
+            include: [db.Barcode],
+            order: [
+                ['item_name', 'ASC']
+            ]
+        }).then(function(result) {
+            res.render("inventory", { items: result });
+        });
+    });
 
     app.get("/camera", function(req, res) {
         res.render("camera");

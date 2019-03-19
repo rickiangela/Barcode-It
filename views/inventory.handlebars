@@ -1,29 +1,29 @@
-<h4>Add a Barcode</h4>
-* All fields are optional
+<h4>Add an Item</h4>
+
 <div class="row">
     <div class="input-field col s4">
         <i class="material-icons prefix">mode_edit</i>
-        <input id="barcode-title" type="text">
-        <label for="barcode-title">Title</label>
+        <input id="item-name" type="text">
+        <label for="item-name">Item Name (required)</label>
     </div>
     <div class="input-field col s4">
         <i class="material-icons prefix">mode_edit</i>
-        <textarea id="barcode-description" class="materialize-textarea"></textarea>
-        <label for="barcode-description">Description</label>
+        <textarea id="item-description" class="materialize-textarea"></textarea>
+        <label for="item-description">Description (optional)</label>
     </div>
 </div>
 <div class="row">
     <div class="input-field col s4">
         <i class="material-icons prefix">photo</i>
         <input id="photo-url" type="text">
-        <label for="photo-url">Photo URL</label>
+        <label for="photo-url">Photo URL (optional)</label>
     </div>
 </div>
 
-<button id="add-barcode" class="btn waves-effect waves-light">Add
+<button id="add-item" class="btn waves-effect waves-light">ADD
     <i class="material-icons right">add_box</i>
 </button>
-<button id="update-barcode" class="btn waves-effect waves-light">UPDATE
+<button id="update-item" class="btn waves-effect waves-light">UPDATE
     <i class="material-icons right">sync</i>
 </button>
 <button id="cancel" class="btn waves-effect waves-light red">CANCEL
@@ -31,32 +31,30 @@
 </button>
 
 <br><br>
-<h4>Existing Barcodes</h4>
-<strong>*Click a barcode to view and edit associated items</strong><br><br>
+<h4>Inventory</h4>
+<strong>Click the associated barcode to view or change the associated items.</strong><br><br>
 
 <table class="striped">
     <thead>
         <tr>
-            <th>Barcode</th>
-            <th>Title</th>
+            <th>Item Name</th>
             <th>Description</th>
             <th>Photo URL</th>
+            <th>Associated Barcode</th>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
     </thead>
 
     <tbody>
-        {{#each barcodes}}
+        {{#each items}}
         <tr>
-            <td>{{#if barcode_num}}<a href="/barcode/?barcode={{barcode_num}}"><img class="barcode"
-                        data-id="{{barcode_num}}" width=150 /></a>{{/if}}</td>
-            <td>{{title}}</td>
+            <td>{{item_name}}</td>
             <td>{{description}}</td>
             <td>{{#if photo_url}}<a href="{{photo_url}}" target="_blank">View Photo</a>{{/if}}</td>
+            <td>{{#if Barcode.barcode_num}}<a href="/barcode/?barcode={{Barcode.barcode_num}}"><img class="barcode" data-id="{{Barcode.barcode_num}}" width=150/></a>{{/if}}</td>
             <td><button class="edit-button btn waves-effect waves-light" data-id="{{id}}">Edit</button></td>
-            <td><button class="delete-button btn waves-effect waves-light modal-trigger" data-target="modalDelete"
-                    data-id="{{id}}">Delete</button></td>
+            <td><button class="delete-button btn waves-effect waves-light modal-trigger" data-target="modalDelete" data-id="{{id}}">Delete</button></td>
         </tr>
         {{/each}}
     </tbody>
@@ -75,17 +73,15 @@
 </div>
 
 <style>
-    #add-barcode,
-    #update-barcode {
+    #add-item, #update-item {
         margin-left: 55px;
     }
-
+    
     .barcode:hover {
         opacity: 0.5;
     }
 
-    #update-barcode,
-    #cancel {
+    #update-item, #cancel {
         display: none;
     }
 
@@ -96,4 +92,4 @@
 </style>
 
 <script src="/javascript/JsBarcode.all.min.js"></script>
-<script src="/javascript/barcodes.js"></script>
+<script src="/javascript/inventory.js"></script>
