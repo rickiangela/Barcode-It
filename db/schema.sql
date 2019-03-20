@@ -18,7 +18,7 @@ CREATE TABLE `Users` (
   `barcode_num` varchar(255) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
   `description` text,
-  `photo_url` text,
+  `photo_url` varchar(255),
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
   `UserId` int(11) NOT NULL,

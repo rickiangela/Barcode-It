@@ -10,6 +10,10 @@ module.exports = function(sequelize, DataTypes) {
         description: {
             type: DataTypes.TEXT,
             allowNull: true
+        },
+        photo_url: {
+            type: DataTypes.TEXT,
+            allowNull: true
         }
     });
 

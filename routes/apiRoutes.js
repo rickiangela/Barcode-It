@@ -2,6 +2,7 @@ var db = require("../models");
 var passport = require("../config/passport");
 
 module.exports = function(app) {
+
    app.post("/api/login", passport.authenticate("local"), function(req, res) {
     res.render("barcodes");
   });
@@ -45,14 +46,24 @@ module.exports = function(app) {
     }
   });
 
+    app.get("/api/barcode/:id", function(req, res) {
+        var userId = 1; //replace with req.user.id when passport implemented
+
+        db.Barcode.findOne({
+            where: { UserId: userId, id: req.params.id }
+        }).then(function(result) {
+            res.json(result);
+        });
+    });
+
     app.post("/api/barcode", function(req, res) {
-        var barcodeNum = 238745123412;
+        var userId = 1; //replace with req.user.id when passport implemented
 
         function createBarcode() {
             //Create 12-digit barcode that begins with 1-9 and verify it doesn't already exist
             var barcodeNum = Math.floor(Math.random() * 899999999999) + 100000000000;
             db.Barcode.findOne({
-                where: { UserId: req.body.id, barcode_num: barcodeNum }
+                where: { UserId: userId, barcode_num: barcodeNum }
             }).then(function(result) {
                 if (result) {
                     //Try again using recursion
@@ -64,13 +75,84 @@ module.exports = function(app) {
                         title: req.body.title,
                         description: req.body.description,
                         photo_url: req.body.photo_url,
-                        UserId: req.body.id
+                        UserId: userId
                     }).then(function(result) {
-                        res.send(result);
+                        res.json(result);
                     })
                 }
             });
         };
         createBarcode();
+    });
+
+    app.put("/api/barcode/:id", function(req, res) {
+        var userId = 1; //replace with req.user.id when passport implemented
+
+        db.Barcode.update({
+            title: req.body.title,
+            description: req.body.description,
+            photo_url: req.body.photo_url
+        }, {
+            where: { id: req.params.id }
+        }).then(function(result) {
+            res.json(result);
+        });
+    });
+
+    app.delete("/api/barcode/:id", function(req, res) {
+        var userId = 1; //replace with req.user.id when passport implemented
+
+        db.Barcode.destroy({
+            where: { UserId: userId, id: req.params.id }
+        }).then(function(result) {
+            res.json(result);
+        });
+    });
+
+    app.get("/api/item/:id", function(req, res) {
+        var userId = 1;
+
+        db.Item.findOne({
+            where: { UserId: userId, id: req.params.id }
+        }).then(function(result) {
+            res.json(result);
+        });
+    });
+
+    app.post("/api/item", function(req, res) {
+        var userId = 1; //replace with req.user.id when passport implemented
+
+        db.Item.create({
+            item_name: req.body.item_name,
+            description: req.body.description,
+            photo_url: req.body.photo_url,
+            UserId: userId
+        }).then(function(result) {
+            res.json(result);
+        });
+    });
+
+    app.put("/api/item/:id", function(req, res) {
+        var userId = 1; //replace with req.user.id when passport implemented
+
+        db.Item.update({
+            item_name: req.body.item_name,
+            description: req.body.description,
+            photo_url: req.body.photo_url
+        }, {
+            where: { id: req.params.id }
+        }).then(function(result) {
+            res.json(result);
+        });
+    });
+
+    app.delete("/api/item/:id", function(req, res) {
+        var userId = 1; //replace with req.user.id when passport implemented
+
+        db.Item.destroy({
+            where: { UserId: userId, id: req.params.id }
+        }).then(function(result) {
+            res.json(result);
+        });
     });
 };

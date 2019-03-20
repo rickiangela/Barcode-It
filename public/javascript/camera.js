@@ -1,3 +1,5 @@
+$(".li-camera").attr("class", "active");
+
 $(function() {
     var App = {
         init: function() {

@@ -1,4 +1,3 @@
-var userId = 1;
 var textEntry = '';
 document.addEventListener("keydown", function(e) {
     const targetName = e.target.localName;
@@ -6,14 +5,14 @@ document.addEventListener("keydown", function(e) {
         textEntry += e.key.toString();
         if (textEntry.length == 12) {
             console.log('scan detected');
-            window.location.href = window.location.origin + "/barcodes/?barcode=" + textEntry;
+            window.location.href = window.location.origin + "/barcode/?barcode=" + textEntry;
             textEntry = "";
         };
     } else textEntry = "";
 });
 
 $("#barcodes-display").on("click", function() {
-    window.location.href = window.location.origin + "/barcodes/" + userId;
+    window.location.href = window.location.origin + "/barcodes/user";
 });
 
 $("#camera-barcode").on("click", function() {
