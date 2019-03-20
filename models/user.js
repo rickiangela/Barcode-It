@@ -47,6 +47,6 @@ module.exports = function (sequelize, DataTypes) {
             onDelete: "cascade"
         });
     };
-
+    console.log("user console log" + User)
     return User;
 };
