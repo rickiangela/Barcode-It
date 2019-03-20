@@ -1,5 +1,7 @@
 var db = require("../models");
+var fs = require("fs");
 var path = require("path");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
     // Load sign-in page
@@ -70,4 +72,8 @@ module.exports = function(app) {
     app.get("/camera", function(req, res) {
         res.render("camera");
     })
+
+    app.get("/members", isAuthenticated, function(req, res) {
+        res.sendFile(path.join(__dirname, "../public/html/registration.html"));
+      });
 };
