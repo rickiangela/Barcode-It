@@ -17,7 +17,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- JQUERY -->
-    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="http://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
 
     <!-- Materialize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -86,32 +88,15 @@
     </div>
 
 
-
-    <script>
-        $("#sign-in-submit").on("click", function () {
+    <!-- <script>
+        $("#sign-in-submit").on("click", function() {
             window.location.href = window.location.origin + "/index";
         })
-    </script>
+    </script> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 
-<style>
-    h2 {
-        font-family: 'ZCOOL XiaoWei', serif;
-    }
-
-    .mrt50 {
-        margin-top: 50px;
-    }
-
-    .page-footer {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        padding-bottom: 6px;
-    }
-</style>
 <script>
     $(document).ready(function () {
         M.updateTextFields();
