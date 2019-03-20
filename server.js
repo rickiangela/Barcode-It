@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-app.use(session({ secret: "hideThisSecretLater", resave: true, saveUninitialized: true}));
+app.use(session({ secret: "hideThisSecretLater", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -31,12 +31,12 @@ app.set("view engine", "handlebars");
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
-var syncOptions = { force: true };
+var syncOptions = { force: false };
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
 if (process.env.NODE_ENV === "test") {
-    // syncOptions.force = true;
+    syncOptions.force = true;
 }
 
 // Starting the server, syncing our models ------------------------------------/

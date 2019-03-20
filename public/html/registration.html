@@ -13,8 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- JQUERY -->
-    <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
 
     <!-- Materialize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -29,17 +28,17 @@
             height: 85%;
             margin: auto;
         }
-
+        
         h4 {
             text-align: center;
         }
-
+        
         .brand-logo {
             margin: auto;
             width: 170px;
             height: auto;
         }
-
+        
         .register-form {
             width: 80%;
             margin: auto;
@@ -56,18 +55,18 @@
                 <form class="register-form">
                     <div class="row margin">
                         <div class="input-field col s6">
-                            <input id="first_name" type="text" class="validate">
-                            <label for="first_name" class="center-align">First Name</label>
+                            <input id="firstname_input" type="text" class="validate">
+                            <label for="firstname_input" class="center-align">First Name</label>
                         </div>
                         <div class="input-field col s6">
-                            <input id="last_name" type="text" class="validate">
-                            <label for="last_name" class="center-align">Last Name</label>
+                            <input id="lastname_input" type="text" class="validate">
+                            <label for="lastname_input" class="center-align">Last Name</label>
                         </div>
                     </div>
                     <div class="row margin">
                         <div class="input-field col s12">
-                            <input id="email" type="email" class="validate">
-                            <label for="email" class="center-align">Email</label>
+                            <input id="email_input" type="email" class="validate">
+                            <label for="email_input" class="center-align">Email</label>
                         </div>
                     </div>
 
@@ -83,12 +82,11 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <p class="btn waves-effect blue waves-light col s12">Register Now</p>
+                            <button id="registrationSubmit" class="btn waves-effect blue waves-light col s12">Register Now</button>
                         </div>
 
                         <div class="input-field col s12">
-                            <p class="margin center medium-small sign-up">Already have an account? <a href="/">Sign
-                                    in.</a>
+                            <p class="margin center medium-small sign-up">Already have an account? <a href="/">Sign in.</a>
                             </p>
                         </div>
                     </div>
@@ -97,16 +95,14 @@
         </div>
     </div>
 
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script type="text/javascript" src="js/signup.js"></script>
+    <script type="text/javascript" src="/javascript/registration.js"></script>
 </body>
 
 <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
         M.updateTextFields();
     });
-
 </script>
 </body>
 

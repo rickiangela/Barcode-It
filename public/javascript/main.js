@@ -23,3 +23,9 @@ $("#camera-barcode").on("click", function() {
 $(document).ready(function() {
     $('.modal').modal();
 });
+
+$.ajax("/api/user_data", {
+    method: "GET"
+}).then(function(response) {
+    $("#signout").text("Signout (" + response.first_name + " " + response.last_name + ")");
+});
