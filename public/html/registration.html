@@ -20,134 +20,88 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" media="screen" href="/css/styles.css">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="/css/styles.css"> -->
+
+    <style>
+        .register-size {
+            width: 65%;
+            height: 85%;
+            margin: auto;
+        }
+
+        h4 {
+            text-align: center;
+        }
+
+        .brand-logo {
+            margin: auto;
+            width: 170px;
+            height: auto;
+        }
+
+        .register-form {
+            width: 80%;
+            margin: auto;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container allbrdr gr1 mrt50">
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <h2 class="center">Registration Page</h2>
-                <p class="smallbrdr"></p>
-            </div>
-            <div class="container center">
-                <form class="col s12 m12 l12 ">
-                    <div class="row pdt10 pdl10">
-                        <div class="input-field col s6 m6 l6">
-                            <input id="user_name" type="text" class="validate">
-                            <label for="user_name">Desired User Name</label>
-                            <span id="nametaken"></span>
-
-                        </div>
-                        <div class="input-field col s6 m6 l6">
-                            <input input id="email" type="email" class="validate">
-                            <label for="email">Email Address</label>
-                        </div>
-                    </div>
-                    <div class="row pdl10">
-                        <div class="input-field col s6 m6 l6">
+    <div class="register-size">
+        <div id="register-page" class="row">
+            <div class="col s12 z-depth-6 card-panel">
+                <a href="/index"><img class="brand-logo" src="/images/barcode-it-logo.png"></a>
+                <h4>Create Barcode-It Account</h4>
+                <form class="register-form">
+                    <div class="row margin">
+                        <div class="input-field col s6">
                             <input id="first_name" type="text" class="validate">
-                            <label for="first_name">First Name</label>
+                            <label for="first_name" class="center-align">First Name</label>
                         </div>
-                        <div class="input-field col s6 m6 l6">
-                            <input input id="last_name" type="text" class="validate">
-                            <label for="last_name">Last Name</label>
-                        </div>
-                    </div>
-                    <div class="row pdl10">
-                        <div class="input-field col s6 m6 l6">
-                            <input input id="password" type="password" class="validate">
-                            <label for="password">Password</label>
-                        </div>
-                        <div class="input-field col s6 m6 l6">
-                            <input input id="passwordconf" type="password" class="validate">
-                            <label for="passwordconf">Confirm Password</label>
-                            <span id="mustMatch"></span>
+                        <div class="input-field col s6">
+                            <input id="last_name" type="text" class="validate">
+                            <label for="last_name" class="center-align">Last Name</label>
                         </div>
                     </div>
+                    <div class="row margin">
+                        <div class="input-field col s12">
+                            <input id="email" type="email" class="validate">
+                            <label for="email" class="center-align">Email</label>
+                        </div>
+                    </div>
+                    <div class="row margin">
+                        <div class="input-field col s6">
+                            <input id="password" type="password" class="validate">
+                            <label for="password" class="center-align">Password</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="confirm_pass" type="password">
+                            <label for="confirm_pass" class="center-align">Confirm Password</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <p class="btn waves-effect blue waves-light col s12">Register Now</p>
+                        </div>
 
+                        <div class="input-field col s12">
+                            <p class="margin center medium-small sign-up">Already have an account? <a href="/">Sign
+                                    in.</a>
+                            </p>
+                        </div>
+                    </div>
                 </form>
-
             </div>
-
-
         </div>
-        <button class="btn waves-effect waves-light light-blue accent-1 mrl10 mrb10" type="submit" name="action">Submit
-            <i class="material-icons right">send</i>
-        </button>
     </div>
-    <div class="container mrb50">
-        <a class="pdr10" href="/">I already have an account, take me to the sign in page!</a>
 
-    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
-<style>
-    .mrb20 {
-        margin-bottom: 20px;
-    }
-    
-    .gr1 {
-        background-color: rgb(245, 243, 243)
-    }
-    
-    .pdt10 {
-        padding-top: 10px
-    }
-    
-    .pdl10 {
-        padding-left: 10px
-    }
-    
-    .mrl10 {
-        margin-left: 10px
-    }
-    
-    .mrb10 {
-        margin-bottom: 10px
-    }
-    
-    h2 {
-        font-family: 'ZCOOL XiaoWei', serif;
-    }
-    
-    .smallbrdr {
-        border-bottom: black solid 1px;
-        /* padding-left: 10%;
-                padding-right: 10%; */
-        margin-right: 10%;
-        margin-left: 10%;
-    }
-    
-    .allbrdr {
-        border: black solid 1px;
-    }
-    
-    .mrt50 {
-        margin-top: 50px;
-    }
-    
-    .mrb50 {
-        margin-bottom: 50px;
-    }
-    
-    .page-footer {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-    }
-    
-    body {
-        background-image: linear-gradient(to right, white, rgba(121, 212, 255, 0.849));
-        height: 100%;
-    }
-</style>
-
 
 
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         M.updateTextFields();
     });
 </script>
