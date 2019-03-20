@@ -4,6 +4,7 @@ var passport = require("../config/passport");
 module.exports = function(app) {
 
    app.post("/api/login", passport.authenticate("local"), function(req, res) {
+       console.log("user authenticated")
     res.render("barcodes");
   });
 
@@ -16,7 +17,7 @@ module.exports = function(app) {
       email: req.body.email,
       password: req.body.password
     }).then(function() {
-        res.json("/index")
+        res.redirect(307, "/api/login")
     }).catch(function(err) {
       console.log(err);
       res.json(err);
@@ -47,7 +48,7 @@ module.exports = function(app) {
   });
 
     app.get("/api/barcode/:id", function(req, res) {
-        var userId = 1; //replace with req.user.id when passport implemented
+        var userId = req.user.id; //replace with req.user.id when passport implemented
 
         db.Barcode.findOne({
             where: { UserId: userId, id: req.params.id }
@@ -57,7 +58,7 @@ module.exports = function(app) {
     });
 
     app.post("/api/barcode", function(req, res) {
-        var userId = 1; //replace with req.user.id when passport implemented
+        var userId = req.user.id; //replace with req.user.id when passport implemented
 
         function createBarcode() {
             //Create 12-digit barcode that begins with 1-9 and verify it doesn't already exist
@@ -86,7 +87,7 @@ module.exports = function(app) {
     });
 
     app.put("/api/barcode/:id", function(req, res) {
-        var userId = 1; //replace with req.user.id when passport implemented
+        var userId = req.user.id; //replace with req.user.id when passport implemented
 
         db.Barcode.update({
             title: req.body.title,
@@ -100,7 +101,7 @@ module.exports = function(app) {
     });
 
     app.delete("/api/barcode/:id", function(req, res) {
-        var userId = 1; //replace with req.user.id when passport implemented
+        var userId = req.user.id; //replace with req.user.id when passport implemented
 
         db.Barcode.destroy({
             where: { UserId: userId, id: req.params.id }
@@ -110,7 +111,7 @@ module.exports = function(app) {
     });
 
     app.get("/api/item/:id", function(req, res) {
-        var userId = 1;
+        var userId = req.user.id;
 
         db.Item.findOne({
             where: { UserId: userId, id: req.params.id }
@@ -120,7 +121,7 @@ module.exports = function(app) {
     });
 
     app.post("/api/item", function(req, res) {
-        var userId = 1; //replace with req.user.id when passport implemented
+        var userId = req.user.id; //replace with req.user.id when passport implemented
 
         db.Item.create({
             item_name: req.body.item_name,
@@ -133,7 +134,7 @@ module.exports = function(app) {
     });
 
     app.put("/api/item/:id", function(req, res) {
-        var userId = 1; //replace with req.user.id when passport implemented
+        var userId = req.user.id; //replace with req.user.id when passport implemented
 
         db.Item.update({
             item_name: req.body.item_name,
@@ -147,7 +148,7 @@ module.exports = function(app) {
     });
 
     app.delete("/api/item/:id", function(req, res) {
-        var userId = 1; //replace with req.user.id when passport implemented
+        var userId = req.user.id; //replace with req.user.id when passport implemented
 
         db.Item.destroy({
             where: { UserId: userId, id: req.params.id }
