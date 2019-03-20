@@ -5,12 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <!-- Title -->
-    <title>BarCode-It</title>
+    <title>BarCode-It Registration</title>
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
     <!-- JQUERY -->
     <script src="https://code.jquery.com/jquery.js"></script>
@@ -23,25 +29,72 @@
     <!-- <link rel="stylesheet" type="text/css" media="screen" href="/css/styles.css"> -->
 
     <style>
-        .register-size {
-            width: 65%;
-            height: 85%;
-            margin: auto;
+        body {
+            background: #56CCF2;
+            background: -webkit-linear-gradient(to right, #2F51B7, #56CCF2);
+            background: linear-gradient(to right, #2F51B7, #56CCF2);
+            font-family: 'Open Sans', sans-serif;
         }
-        
+
+        .register-size {
+            width: 35%;
+            margin: auto;
+            margin-top: 20px;
+        }
+
         h4 {
             text-align: center;
+            font-weight: 500;
         }
-        
+
+        p {
+            text-align: center;
+        }
+
         .brand-logo {
             margin: auto;
-            width: 170px;
+            width: 240px;
             height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
         }
-        
+
         .register-form {
             width: 80%;
             margin: auto;
+        }
+
+        .card {
+            border-radius: 7px;
+        }
+        
+        .btn {
+            background: #56CCF2;
+            background: -webkit-linear-gradient(to right, #2F51B7, #56CCF2);
+            background: linear-gradient(to right, #2F51B7, #56CCF2);
+            margin-bottom: 40px;
+        }
+        
+        @media only screen and (max-width: 900px) {
+            .signin-size {
+                width: 80%;
+            }
+        }
+        
+        h2 {
+            width: 100%;
+            text-align: center;
+            border-bottom: 1px solid #000;
+            line-height: 0.1em;
+            margin: 40px 0 10px;
+            font-size: 15px;
+        }
+        
+        h2 span {
+            background: #fff;
+            padding: 0 10px;
         }
     </style>
 </head>
@@ -49,11 +102,13 @@
 <body>
     <div class="register-size">
         <div id="register-page" class="row">
-            <div class="col s12 z-depth-6 card-panel">
+            <div class="col s12 z-depth-6 card">
+                <div class="row margin">
                 <a href="/index"><img class="brand-logo" src="/images/barcode-it-logo.png"></a>
-                <h4>Create Barcode-It Account</h4>
+                </div>
                 <form class="register-form">
                     <div class="row margin">
+                        <h4>Create Account</h4>
                         <div class="input-field col s6">
                             <input id="firstname_input" type="text" class="validate">
                             <label for="firstname_input" class="center-align">First Name</label>
@@ -62,15 +117,10 @@
                             <input id="lastname_input" type="text" class="validate">
                             <label for="lastname_input" class="center-align">Last Name</label>
                         </div>
-                    </div>
-                    <div class="row margin">
                         <div class="input-field col s12">
                             <input id="email_input" type="email" class="validate">
                             <label for="email_input" class="center-align">Email</label>
                         </div>
-                    </div>
-
-                    <div class="row margin">
                         <div class="input-field col s6">
                             <input id="password_input" type="password" class="validate">
                             <label for="password_input" class="center-align">Password</label>
@@ -79,14 +129,16 @@
                             <input id="confirm_pass" type="password">
                             <label for="confirm_pass" class="center-align">Confirm Password</label>
                         </div>
-                    </div>
-                    <div class="row">
                         <div class="input-field col s12">
-                            <button id="registrationSubmit" class="btn waves-effect blue waves-light col s12">Register Now</button>
+                            <button id="registrationSubmit"
+                                class="btn waves-effect blue waves-light col s12">Submit</button>
                         </div>
 
-                        <div class="input-field col s12">
-                            <p class="margin center medium-small sign-up">Already have an account? <a href="/">Sign in.</a>
+                        <h2><span>Already have an account?</span></h2>
+
+                        <div class="col s12">
+                            <p class="margin small"><a style="color:#2F51B7;" href="/">Sign
+                                    in!</a>
                             </p>
                         </div>
                     </div>
@@ -100,7 +152,7 @@
 </body>
 
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         M.updateTextFields();
     });
 </script>
