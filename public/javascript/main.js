@@ -18,3 +18,8 @@ $("#barcodes-display").on("click", function() {
 $("#camera-barcode").on("click", function() {
     window.location.href = window.location.origin + "/camera";
 });
+
+//Modal Initialization
+$(document).ready(function() {
+    $('.modal').modal();
+});

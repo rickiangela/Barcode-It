@@ -84,6 +84,6 @@ $(function() {
 
     Quagga.onDetected(function(result) {
         var code = result.codeResult.code;
-        window.location.href = window.location.origin + "/barcodes/?barcode=" + code;
+        window.location.href = window.location.origin + "/barcode/?barcode=" + code;
     });
 });
