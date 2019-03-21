@@ -1,19 +1,79 @@
 <div class="row">
-    <div class="col s6">
+    <div class="col s12 l3">
+        <img id="scanned-barcode" data-id="{{data.barcode_num}}" />
         <p>Title: {{data.title}}</p>
         <p>Description: {{data.description}}</p>
         {{#if data.photo_url}}<img src="{{data.photo_url}}" alt="Photo" width=200><br>{{/if}}
-        <img id="scanned-barcode" data-id="{{data.barcode_num}}"/>
     </div>
-    <div class="col s6">
+    <div class="col s12 l9">
+        <ul class="tabs s12 l9">
+            <li class="tab col s2"><a id="tab" href="#assigned">Assigned</a></li>
+            <li class="tab col s2"><a id="tab" href="#unassigned">Unassigned</a></li>
+            <li class="tab col s2"><button id="update" class="btn" href="#unassigned">Update</button></li>
+        </ul>
+        <div id="assigned" class="col s12">
+            <table class="striped">
+                <thead>
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Description</th>
+                        <th>Photo</th>
+                    </tr>
+                </thead>
 
+                <tbody>
+                    {{!-- {{#each items}} --}}
+                    <tr>
+                        <td>
+                            <form>
+                                <p>
+                                    <label>
+                                        <input class="checkbox filled-in" type="checkbox"/>
+                                        <span class="assignedItem">Lights{{item-name}}</span>
+                                    </label>
+                                </p>
+                            </form>
+                        </td>
+                        <td>Pretty{{description}}</td>
+                        <td>{{#if photo_url}}<a href="{{photo_url}}" target="_blank">View Photo</a>{{/if}}</td>
+                    </tr>
+                    {{!-- {{/each}} --}}
+                </tbody>
+            </table>
+        </div>
+        <div id="unassigned" class="col blue s12">
+
+        </div>
     </div>
-</div> 
+</div>
 
 <style>
     #scanned-barcode {
         width: 150px;
     }
+
+    #assigned,
+    #unassigned {
+        height: 500px;
+    }
+
+    #tab {
+        color: black;
+    }
+
+    .assignedItem {
+        color: black;
+    }
+
+    #update {
+        display: none;
+    }
+
+    .checkbox[type="checkbox"].filled-in:checked + span:not(.lever):after 
+{
+    border: 2px solid blue;  
+    background-color: blue;
+}
 </style>
 
 <script src="/javascript/JsBarcode.all.min.js"></script>

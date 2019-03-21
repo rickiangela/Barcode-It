@@ -27,7 +27,7 @@ module.exports = function(app) {
         var userId = req.user.id;
         if (req.query.barcode) {
             db.Barcode.findOne({
-                where: { barcode_num: req.query.barcode, userId: 1 }
+                where: { barcode_num: req.query.barcode, UserId: userId }
             }).then(function(result) {
                 if (result) {
                     return res.render("scanned", { data: result });
