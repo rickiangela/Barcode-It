@@ -1,9 +1,9 @@
 <div class="row">
     <div class="col s12 l3">
-        <img id="scanned-barcode" data-id="{{data.barcode_num}}" />
-        <p>Title: {{data.title}}</p>
-        <p>Description: {{data.description}}</p>
-        {{#if data.photo_url}}<img src="{{data.photo_url}}" alt="Photo" width=200><br>{{/if}}
+        <img id="scanned-barcode" data-id="{{barcode.barcode_num}}" />
+        <p>Title: {{barcode.title}}</p>
+        <p>Description: {{barcode.description}}</p>
+        {{#if barcode.photo_url}}<img src="{{barcode.photo_url}}" alt="Photo" width=200><br>{{/if}}
     </div>
     <div class="col s12 l9">
         <ul class="tabs s12 l9">
@@ -22,27 +22,58 @@
                 </thead>
 
                 <tbody>
-                    {{!-- {{#each items}} --}}
+                    {{#each items}}
+                    {{#if BarcodeId}}
                     <tr>
                         <td>
                             <form>
                                 <p>
                                     <label>
-                                        <input class="checkbox filled-in" type="checkbox"/>
-                                        <span class="assignedItem">Lights{{item-name}}</span>
+                                        <input class="checkbox assigned filled-in" type="checkbox" data-changed="false" checked="checked" data-id="{{id}}"/>
+                                        <span class="assignedItem">{{item_name}}</span>
                                     </label>
                                 </p>
                             </form>
                         </td>
-                        <td>Pretty{{description}}</td>
+                        <td>{{description}}</td>
                         <td>{{#if photo_url}}<a href="{{photo_url}}" target="_blank">View Photo</a>{{/if}}</td>
                     </tr>
-                    {{!-- {{/each}} --}}
+                    {{/if}}
+                    {{/each}}
                 </tbody>
             </table>
         </div>
-        <div id="unassigned" class="col blue s12">
+        <div id="unassigned" class="col s12 blue lighten-2">
+            <table class="striped">
+                <thead>
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Description</th>
+                        <th>Photo</th>
+                    </tr>
+                </thead>
 
+                <tbody>
+                    {{#each items}}
+                    {{#unless BarcodeId}}
+                    <tr>
+                        <td>
+                            <form>
+                                <p>
+                                    <label>
+                                        <input class="checkbox unassigned filled-in" data-changed="false" type="checkbox" data-id="{{id}}"/>
+                                        <span class="unassignedItem">{{item_name}}</span>
+                                    </label>
+                                </p>
+                            </form>
+                        </td>
+                        <td>{{description}}</td>
+                        <td>{{#if photo_url}}<a href="{{photo_url}}" target="_blank">View Photo</a>{{/if}}</td>
+                    </tr>
+                    {{/unless}}
+                    {{/each}}
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
@@ -61,7 +92,7 @@
         color: black;
     }
 
-    .assignedItem {
+    .assignedItem, .unassignedItem {
         color: black;
     }
 
@@ -69,11 +100,17 @@
         display: none;
     }
 
-    .checkbox[type="checkbox"].filled-in:checked + span:not(.lever):after 
-{
-    border: 2px solid blue;  
-    background-color: blue;
-}
+    .assigned[type="checkbox"].filled-in:checked + span:not(.lever):after {
+        border: 2px solid black;  
+        background-color: blue;
+    }
+
+    .unassigned[type="checkbox"].filled-in:checked + span:not(.lever):after {
+        border: 2px solid white;  
+        background-color: blue;
+    }
+
+
 </style>
 
 <script src="/javascript/JsBarcode.all.min.js"></script>

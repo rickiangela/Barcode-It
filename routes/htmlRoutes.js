@@ -26,21 +26,37 @@ module.exports = function(app) {
     app.get("/barcode", isAuthenticated, function(req, res) {
         var userId = req.user.id;
         if (req.query.barcode) {
-            db.Barcode.findOne({
+            const getBarcode = db.Barcode.findOne({
                 where: { barcode_num: req.query.barcode, UserId: userId }
-            }).then(function(result) {
-                if (result) {
-                    return res.render("scanned", { data: result });
-                } else {
-                    return res.render("404");
-                }
             });
+
+            const getItems = db.Item.findAll({
+                where: {
+                    UserId: userId,
+                    $or: [{ '$Barcode.barcode_num$': req.query.barcode }, { BarcodeId: null }]
+                },
+                include: [{ model: db.Barcode }]
+            });
+
+            Promise.all([getBarcode, getItems])
+                .then(function(results) {
+                    if (results) {
+                        // console.log(results[0]);
+                        // console.log(results[1]);
+                        // res.json(results);
+                        res.render("scanned", { barcode: results[0], items: results[1] })
+                    } else {
+                        res.render("404");
+                    };
+                }).catch(function(err) {
+                    console.log(err);
+                });
         } else {
             res.render("404");
-        }
+        };
     });
 
-    app.get("/barcodes/user", function(req, res) {
+    app.get("/barcodes/user", isAuthenticated, function(req, res) {
         var userId = req.user.id;
 
         db.Barcode.findAll({
@@ -53,7 +69,7 @@ module.exports = function(app) {
         });
     });
 
-    app.get("/inventory/user", function(req, res) {
+    app.get("/inventory/user", isAuthenticated, function(req, res) {
         var userId = req.user.id;
 
         db.Item.findAll({
@@ -67,7 +83,7 @@ module.exports = function(app) {
         });
     });
 
-    app.get("/camera", function(req, res) {
+    app.get("/camera", isAuthenticated, function(req, res) {
         res.render("camera");
     })
 

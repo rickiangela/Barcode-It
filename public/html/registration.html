@@ -28,15 +28,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- CSS -->
-    <!-- <link rel="stylesheet" type="text/css" media="screen" href="/css/styles.css"> -->
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
 
     <style>
         body {
             background: #56CCF2;
             background: -webkit-linear-gradient(to right, #2F51B7, #56CCF2);
             background: linear-gradient(to right, #2F51B7, #56CCF2);
-            font-family: 'Open Sans', sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
         
         .register-size {
@@ -126,11 +127,11 @@
                             <label for="email_input" class="center-align">Email</label>
                         </div>
                         <div class="input-field col s6">
-                            <input id="password_input" type="password" onchange="checkFunction()" class="validate">
+                            <input id="password_input" type="password" onkeyup="checkFunction()" class="validate">
                             <label for="password_input" class="center-align">Password</label>
                         </div>
                         <div class="input-field col s6">
-                            <input id="confirm_pass" type="password" onchange="checkFunction()">
+                            <input id="confirm_pass" type="password" onkeyup="checkFunction()">
                             <label for="confirm_pass" class="center-align">Confirm Password</label>
                             <span id="pMatch"></span>
                         </div>
