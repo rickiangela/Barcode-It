@@ -95,6 +95,7 @@
         h2 span {
             background: #fff;
             padding: 0 10px;
+            color: rgb(21, 80, 21)
         }
     </style>
 </head>
@@ -122,12 +123,13 @@
                             <label for="email_input" class="center-align">Email</label>
                         </div>
                         <div class="input-field col s6">
-                            <input id="password_input" type="password" class="validate">
+                            <input id="password_input" type="password" onchange="checkFunction()" class="validate">
                             <label for="password_input" class="center-align">Password</label>
                         </div>
                         <div class="input-field col s6">
-                            <input id="confirm_pass" type="password">
+                            <input id="confirm_pass" type="password" onchange="checkFunction()">
                             <label for="confirm_pass" class="center-align">Confirm Password</label>
+                            <span id="pMatch"></span>
                         </div>
                         <div class="input-field col s12">
                             <button id="registrationSubmit"
