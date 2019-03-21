@@ -1,7 +1,7 @@
 {
     "development": {
         "username": "root",
-        "password": "rae212325",
+        "password": "root",
         "database": "barcode_it_db",
         "host": "localhost",
         "dialect": "mysql"
