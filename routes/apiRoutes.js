@@ -46,6 +46,7 @@ module.exports = function(app) {
     });
 
     app.get("/api/barcode/:id", function(req, res) {
+        //used when editing a barcode
         var userId = req.user.id;
 
         db.Barcode.findOne({

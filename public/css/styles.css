@@ -32,7 +32,6 @@ body {
     position: fixed;
     bottom: 0;
     width: 100%;
-    z-index: 200;
 }
 
 #page-container {
@@ -54,6 +53,7 @@ body {
     background: #56CCF2;
     background: -webkit-linear-gradient(to right, #2F51B7, #56CCF2);
     background: linear-gradient(to right, #2F51B7, #56CCF2);
+    z-index: 200;
 }
 
 .media {
