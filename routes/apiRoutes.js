@@ -46,7 +46,7 @@ module.exports = function(app) {
     });
 
     app.get("/api/barcode/:id", function(req, res) {
-        var userId = req.user.id; //replace with req.user.id when passport implemented
+        var userId = req.user.id;
 
         db.Barcode.findOne({
             where: { UserId: userId, id: req.params.id }
@@ -56,7 +56,7 @@ module.exports = function(app) {
     });
 
     app.post("/api/barcode", function(req, res) {
-        var userId = req.user.id; //replace with req.user.id when passport implemented
+        var userId = req.user.id;
 
         function createBarcode() {
             //Create 12-digit barcode that begins with 1-9 and verify it doesn't already exist
@@ -85,21 +85,21 @@ module.exports = function(app) {
     });
 
     app.put("/api/barcode/:id", function(req, res) {
-        var userId = req.user.id; //replace with req.user.id when passport implemented
+        var userId = req.user.id;
 
         db.Barcode.update({
             title: req.body.title,
             description: req.body.description,
             photo_url: req.body.photo_url
         }, {
-            where: { id: req.params.id }
+            where: { UserId: userId, id: req.params.id }
         }).then(function(result) {
             res.json(result);
         });
     });
 
     app.delete("/api/barcode/:id", function(req, res) {
-        var userId = req.user.id; //replace with req.user.id when passport implemented
+        var userId = req.user.id;
 
         db.Barcode.destroy({
             where: { UserId: userId, id: req.params.id }
@@ -119,7 +119,7 @@ module.exports = function(app) {
     });
 
     app.post("/api/item", function(req, res) {
-        var userId = req.user.id; //replace with req.user.id when passport implemented
+        var userId = req.user.id;
 
         db.Item.create({
             item_name: req.body.item_name,
@@ -132,21 +132,21 @@ module.exports = function(app) {
     });
 
     app.put("/api/item/:id", function(req, res) {
-        var userId = req.user.id; //replace with req.user.id when passport implemented
+        var userId = req.user.id;
 
         db.Item.update({
             item_name: req.body.item_name,
             description: req.body.description,
             photo_url: req.body.photo_url
         }, {
-            where: { id: req.params.id }
+            where: { UserId: userId, id: req.params.id }
         }).then(function(result) {
             res.json(result);
         });
     });
 
     app.delete("/api/item/:id", function(req, res) {
-        var userId = req.user.id; //replace with req.user.id when passport implemented
+        var userId = req.user.id;
 
         db.Item.destroy({
             where: { UserId: userId, id: req.params.id }

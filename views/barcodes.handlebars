@@ -20,7 +20,7 @@
     </div>
 </div>
 
-<button id="add-barcode" class="btn waves-effect waves-light">Add
+<button id="add-barcode" class="btn waves-effect waves-light blue lighten-1">Add
     <i class="material-icons right">add_box</i>
 </button>
 <button id="update-barcode" class="btn waves-effect waves-light">UPDATE
@@ -41,8 +41,8 @@
             <th>Title</th>
             <th>Description</th>
             <th>Photo URL</th>
-            <th>Edit</th>
-            <th>Delete</th>
+            <th></th><!-- Edit Button -->
+            <th></th><!-- Delete Button -->
         </tr>
     </thead>
 
@@ -55,7 +55,7 @@
             <td>{{description}}</td>
             <td>{{#if photo_url}}<a href="{{photo_url}}" target="_blank">View Photo</a>{{/if}}</td>
             <td><button class="edit-button btn waves-effect waves-light" data-id="{{id}}">Edit</button></td>
-            <td><button class="delete-button btn waves-effect waves-light modal-trigger" data-target="modalDelete"
+            <td><button class="delete-button btn waves-effect waves-light modal-trigger red" data-target="modalDelete"
                     data-id="{{id}}">Delete</button></td>
         </tr>
         {{/each}}

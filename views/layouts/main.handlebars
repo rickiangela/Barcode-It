@@ -9,6 +9,9 @@
     <!-- Title -->
     <title>BarCode-It</title>
 
+    <!-- FavIcon -->
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
 
@@ -22,8 +25,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" media="screen" href="/css/styles.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
 
 </head>
 
@@ -36,16 +43,24 @@
                     <a href="/index"><img class="brand-logo" src="/images/barcode-it-logo.png"></a>
 
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a class="modal-trigger" data-target="modalSearch"><i class="material-icons">search</i></a>
-                        </li>
                         <li class="li-home"><a href="/index">Home</a></li>
                         <li class="li-barcodes"><a href="/barcodes/user">Barcodes</a></li>
                         <li class="li-inventory"><a href="/inventory/user">Inventory</a></li>
-                        <li class="li-camera"><a href="/camera">Camera Scan</a></li>
+                        <li class="li-camera"><a style="color: black;" href="/camera">Camera Scan</a></li>
+                        <li><a class="modal-trigger" style="color: black;" data-target="modalSearch"><i class="material-icons">search</i></a></li>
                         <li><a id="signout" href="/logout">Signout</a></li>
                     </ul>
                 </div>
             </nav>
+
+            <ul class="sidenav" id="mobile-demo">
+                <li><a class="modal-trigger" data-target="modalSearch"><i class="material-icons">search</i></a></li>
+                <li class="li-home"><a href="/index">Home</a></li>
+                <li class="li-barcodes"><a href="/barcodes/user">Barcodes</a></li>
+                <li class="li-inventory"><a href="/inventory/user">Inventory</a></li>
+                <li class="li-camera"><a href="/camera">Camera Scan</a></li>
+                <li><a id="signout" href="/logout">Signout</a></li>
+            </ul>
 
             <!--  Content -->
             <div class="container mrt100">
@@ -54,9 +69,11 @@
                 </div>
             </div>
         </div>
-        <!-- Footer -->
+    </div>
+
+    <!-- Footer -->
         <div style="background-color: #E1E6F4;" id="footer">
-            <div class="center pad">
+                <label style="color: black; font-size: 12px;"><em>Powered By</em></label>               
                 <i class="media devicon-html5-plain-wordmark"></i>
                 <i class="media devicon-css3-plain-wordmark"></i>
                 <i class="media devicon-javascript-plain"></i>
@@ -65,32 +82,25 @@
                 <i class="media devicon-mysql-plain-wordmark"></i>
                 <i class="media devicon-sequelize-plain-wordmark"></i>
                 <i class="media devicon-express-original-wordmark"></i>
-            </div>
         </div>
-    </div>
 
     <!-- Modal Structure -->
     <div id="modalSearch" class="modal">
         <div class="modal-content">
             <h4>Barcode Search</h4>
-            <form action="/barcode" method"GET">
-                <div class="input-field">
-                    <input id="barcode-number" type="search" name="barcode">
+            <nav>
+                <div class="nav-wrapper">
+                    <form>
+                        <div class="input-field">
+                            <input class="blue accent-1" id="search" type="search" placeholder="12-Digit Barcode Number">
+                            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                            <i class="material-icons">close</i>
+                        </div>
+                    </form>
                 </div>
-            </form>
+            </nav>
         </div>
     </div>
-
-    <style>
-        #modalSearch {
-            height: 100px;
-            width: 200px;
-        }
-
-        #signout {
-            color: blue;
-        }
-    </style>
 
     <script src="/javascript/main.js"></script>
 </body>

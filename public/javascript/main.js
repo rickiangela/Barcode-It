@@ -11,21 +11,27 @@ document.addEventListener("keydown", function(e) {
     } else textEntry = "";
 });
 
-$("#barcodes-display").on("click", function() {
-    window.location.href = window.location.origin + "/barcodes/user";
-});
-
-$("#camera-barcode").on("click", function() {
-    window.location.href = window.location.origin + "/camera";
-});
-
-//Modal Initialization
-$(document).ready(function() {
-    $('.modal').modal();
+$("#search").on("keydown", function(e) {
+    var inputText = $(this).val().trim();
+    if (e.key === "Enter") {
+        e.preventDefault();
+        if (inputText.length === 12) {
+            window.location.href = window.location.origin + "/barcode/?barcode=" + inputText;
+        };
+    };
 });
 
 $.ajax("/api/user_data", {
     method: "GET"
 }).then(function(response) {
     $("#signout").text("Signout (" + response.first_name + " " + response.last_name + ")");
+});
+
+//Modal Initialization
+$(document).ready(function() {
+    //Modal Initialization
+    $('.modal').modal();
+
+    //Mobile Sidenav Initialization
+    $('.sidenav').sidenav();
 });
