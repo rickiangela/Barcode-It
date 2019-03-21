@@ -7,12 +7,17 @@ body {
 }
 
 .body-content {
-    padding-top: 80px;
-    padding-bottom: 80px;
-    /*background-color: white;
-    height: 80%;
-    overflow: hidden;
-    */
+    /* padding-top: 80px;
+    padding-bottom: 80px; */
+    background-color: white;
+    padding: 20px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    border-radius: 7px;
+    margin-top: 50px;
+    -webkit-box-shadow: 1px 1px 4px 1px rgba(47,81,183,0.54);
+    -moz-box-shadow: 1px 1px 4px 1px rgba(47,81,183,0.54);
+    box-shadow: 1px 1px 4px 1px rgba(47,81,183,0.54);
 }
 
 .brand-logo {
@@ -39,7 +44,7 @@ body {
 }
 
 #footer {
-    position: fixed;
+    position: relative;
     text-align: center;
     padding-top: 8px;
     bottom: 0;
@@ -54,6 +59,7 @@ body {
 .media {
     color: #E1E6F4;
     font-size: 55px;
+    margin: 3px;
 }
 
 @media only screen and (max-width: 900px) {
