@@ -52,9 +52,11 @@
             <td>{{item_name}}</td>
             <td>{{description}}</td>
             <td>{{#if photo_url}}<a href="{{photo_url}}" target="_blank">View Photo</a>{{/if}}</td>
-            <td>{{#if Barcode.barcode_num}}<a href="/barcode/?barcode={{Barcode.barcode_num}}"><img class="barcode" data-id="{{Barcode.barcode_num}}" width=150/></a>{{/if}}</td>
+            <td>{{#if Barcode.barcode_num}}<a href="/barcode/?barcode={{Barcode.barcode_num}}"><img class="barcode"
+                        data-id="{{Barcode.barcode_num}}" width=150 /></a>{{/if}}</td>
             <td><button class="edit-button btn waves-effect waves-light" data-id="{{id}}">Edit</button></td>
-            <td><button class="delete-button btn waves-effect waves-light modal-trigger" data-target="modalDelete" data-id="{{id}}">Delete</button></td>
+            <td><button class="delete-button btn waves-effect waves-light modal-trigger" data-target="modalDelete"
+                    data-id="{{id}}">Delete</button></td>
         </tr>
         {{/each}}
     </tbody>
@@ -73,15 +75,17 @@
 </div>
 
 <style>
-    #add-item, #update-item {
+    #add-item,
+    #update-item {
         margin-left: 55px;
     }
-    
+
     .barcode:hover {
         opacity: 0.5;
     }
 
-    #update-item, #cancel {
+    #update-item,
+    #cancel {
         display: none;
     }
 

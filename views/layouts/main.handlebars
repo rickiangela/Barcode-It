@@ -9,6 +9,9 @@
     <!-- Title -->
     <title>BarCode-It</title>
 
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -25,35 +28,46 @@
 </head>
 
 <body>
-    <!-- Navbar -->
-    <nav>
-        <div class="nav-wrapper blue accent-1">
-            <a href="/index"><img class="brand-logo" src="/images/barcode-it-logo.png"></a>
+    <div id="page-container">
+        <div id="content-wrap">
+            <!-- Navbar -->
+            <nav>
+                <div style="background-color: #E1E6F4;" class="nav-wrapper accent-1">
+                    <a href="/index"><img class="brand-logo" src="/images/barcode-it-logo.png"></a>
 
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a class="modal-trigger" data-target="modalSearch"><i class="material-icons">search</i></a> </li>
-                <li class="li-home"><a href="/index">Home</a></li>
-                <li class="li-barcodes"><a href="/barcodes/user">Barcodes</a></li>
-                <li class="li-inventory"><a href="/inventory/user">Inventory</a></li>
-                <li class="li-camera"><a href="/camera">Camera Scan</a></li>
-                <li><a id="signout" href="/logout">Signout</a></li>
-            </ul>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a class="modal-trigger" data-target="modalSearch"><i class="material-icons">search</i></a>
+                        </li>
+                        <li class="li-home"><a href="/index">Home</a></li>
+                        <li class="li-barcodes"><a href="/barcodes/user">Barcodes</a></li>
+                        <li class="li-inventory"><a href="/inventory/user">Inventory</a></li>
+                        <li class="li-camera"><a href="/camera">Camera Scan</a></li>
+                        <li><a id="signout" href="/logout">Signout</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!--  Content -->
+            <div class="container mrt100">
+                <div class="body-content">
+                    {{{body}}}
+                </div>
+            </div>
         </div>
-    </nav>
-
-    <!--  Content -->
-    <div class="container mrt100">
-        <div class="body-content">
-            {{{body}}}
+        <!-- Footer -->
+        <div style="background-color: #E1E6F4;" id="footer">
+            <div class="center pad">
+                <i class="media devicon-html5-plain-wordmark"></i>
+                <i class="media devicon-css3-plain-wordmark"></i>
+                <i class="media devicon-javascript-plain"></i>
+                <i class="media devicon-jquery-plain-wordmark"></i>
+                <i class="media devicon-nodejs-plain-wordmark"></i>
+                <i class="media devicon-mysql-plain-wordmark"></i>
+                <i class="media devicon-sequelize-plain-wordmark"></i>
+                <i class="media devicon-express-original-wordmark"></i>
+            </div>
         </div>
     </div>
-
-    <!-- Footer -->
-    <footer class="page-footer blue accent-1">
-        <div class="container center">
-            © 2019 Copyright
-        </div>
-    </footer>
 
     <!-- Modal Structure -->
     <div id="modalSearch" class="modal">
@@ -72,6 +86,7 @@
             height: 100px;
             width: 200px;
         }
+
         #signout {
             color: blue;
         }
