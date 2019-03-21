@@ -40,3 +40,22 @@ $(document).ready(function() {
         });
     };
 });
+
+function checkFunction()
+{
+
+    var p1 = document.getElementById('password_input');
+    var p2 = document.getElementById('confirm_pass');
+    var confirmed = document.getElementById('pMatch');
+    var valid = "#rgb(21, 80, 21)";
+    var invalid = "rgba(185, 11, 5, 0.822)";
+    if(p1.value === p2.value){ 
+        p2.style.backgroundColor = valid;
+        confirmed.style.color = valid;
+        confirmed.innerHTML = "Passwords Match!"
+    }else{
+        p2.style.backgroundColor = invalid;
+        confirmed.style.color = invalid;
+        confirmed.innerHTML = "Passwords Do Not Match!"
+    }
+}  
