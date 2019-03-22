@@ -41,10 +41,11 @@ module.exports = function(app) {
             Promise.all([getBarcode, getItems])
                 .then(function(results) {
                     if (results) {
-                        // console.log(results[0]);
-                        // console.log(results[1]);
-                        // res.json(results);
-                        res.render("scanned", { barcode: results[0], items: results[1] })
+                        if (results[0]) {
+                            res.render("scanned", { barcode: results[0], items: results[1] })
+                        } else {
+                            res.render("404");
+                        }
                     } else {
                         res.render("404");
                     };

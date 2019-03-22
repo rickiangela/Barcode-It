@@ -13,7 +13,8 @@
     <link rel="icon" type="image/png" href="/images/favicon.png">
 
     <!-- Icons -->
-    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
+    <link rel="stylesheet"
+        href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -41,25 +42,25 @@
             <nav>
                 <div style="background-color: #E1E6F4;" class="nav-wrapper accent-1">
                     <a href="/index"><img class="brand-logo" src="/images/barcode-it-logo.png"></a>
-
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <li class="li-home"><a href="/index">Home</a></li>
                         <li class="li-barcodes"><a href="/barcodes/user">Barcodes</a></li>
                         <li class="li-inventory"><a href="/inventory/user">Inventory</a></li>
                         <li class="li-camera"><a style="color: black;" href="/camera">Camera Scan</a></li>
-                        <li><a class="modal-trigger" style="color: black;" data-target="modalSearch"><i class="material-icons">search</i></a></li>
-                        <li><a id="signout" href="/logout">Signout</a></li>
+                        <li class="li-search"><a class="modal-trigger" style="color: black;" data-target="modalSearch"><i
+                                    class="material-icons">search</i></a></li>
+                        <li class="li-signout"><a id="signout" href="/logout">Signout</a></li>
                     </ul>
                 </div>
             </nav>
-
             <ul class="sidenav" id="mobile-demo">
-                <li><a class="modal-trigger" data-target="modalSearch"><i class="material-icons">search</i></a></li>
                 <li class="li-home"><a href="/index">Home</a></li>
                 <li class="li-barcodes"><a href="/barcodes/user">Barcodes</a></li>
                 <li class="li-inventory"><a href="/inventory/user">Inventory</a></li>
                 <li class="li-camera"><a href="/camera">Camera Scan</a></li>
-                <li><a id="signout" href="/logout">Signout</a></li>
+                <li class="li-search"><a class="modal-trigger" style="color: black;" data-target="modalSearch"><i class="material-icons">search</i></a></li>
+                <li class="li-signout"><a id="signout" href="/logout">Signout</a></li>
             </ul>
 
             <!--  Content -->
@@ -72,17 +73,17 @@
     </div>
 
     <!-- Footer -->
-        <div style="background-color: #E1E6F4;" id="footer">
-                <label style="color: black; font-size: 12px;"><em>Powered By</em></label>               
-                <i class="media devicon-html5-plain-wordmark"></i>
-                <i class="media devicon-css3-plain-wordmark"></i>
-                <i class="media devicon-javascript-plain"></i>
-                <i class="media devicon-jquery-plain-wordmark"></i>
-                <i class="media devicon-nodejs-plain-wordmark"></i>
-                <i class="media devicon-mysql-plain-wordmark"></i>
-                <i class="media devicon-sequelize-plain-wordmark"></i>
-                <i class="media devicon-express-original-wordmark"></i>
-        </div>
+    <div style="background-color: #E1E6F4;" id="footer">
+        <label style="color: black; font-size: 12px;"><em>Powered By</em></label>
+        <i class="media devicon-html5-plain-wordmark"></i>
+        <i class="media devicon-css3-plain-wordmark"></i>
+        <i class="media devicon-javascript-plain"></i>
+        <i class="media devicon-jquery-plain-wordmark"></i>
+        <i class="media devicon-nodejs-plain-wordmark"></i>
+        <i class="media devicon-mysql-plain-wordmark"></i>
+        <i class="media devicon-sequelize-plain-wordmark"></i>
+        <i class="media devicon-express-original-wordmark"></i>
+    </div>
 
     <!-- Modal Structure -->
     <div id="modalSearch" class="modal">
@@ -92,7 +93,8 @@
                 <div class="nav-wrapper">
                     <form>
                         <div class="input-field">
-                            <input class="blue accent-1" id="search" type="search" placeholder="12-Digit Barcode Number">
+                            <input class="blue accent-1" id="search" type="search"
+                                placeholder="12-Digit Barcode Number">
                             <label class="label-icon" for="search"><i class="material-icons">search</i></label>
                             <i class="material-icons">close</i>
                         </div>

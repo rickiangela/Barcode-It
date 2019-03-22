@@ -15,9 +15,9 @@ body {
     padding-bottom: 15px;
     border-radius: 7px;
     margin-top: 50px;
-    -webkit-box-shadow: 1px 1px 4px 1px rgba(47,81,183,0.54);
-    -moz-box-shadow: 1px 1px 4px 1px rgba(47,81,183,0.54);
-    box-shadow: 1px 1px 4px 1px rgba(47,81,183,0.54);
+    -webkit-box-shadow: 1px 1px 4px 1px rgba(47, 81, 183, 0.54);
+    -moz-box-shadow: 1px 1px 4px 1px rgba(47, 81, 183, 0.54);
+    box-shadow: 1px 1px 4px 1px rgba(47, 81, 183, 0.54);
 }
 
 .brand-logo {
