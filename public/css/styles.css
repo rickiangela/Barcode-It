@@ -11,8 +11,8 @@ body {
     padding-bottom: 80px; */
     background-color: white;
     padding: 20px;
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding-top: 5px;
+    padding-bottom: 15px;
     border-radius: 7px;
     margin-top: 50px;
     -webkit-box-shadow: 1px 1px 4px 1px rgba(47,81,183,0.54);
@@ -44,7 +44,7 @@ body {
 }
 
 #footer {
-    position: relative;
+    position: fixed;
     text-align: center;
     padding-top: 8px;
     bottom: 0;
