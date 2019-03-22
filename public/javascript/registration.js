@@ -57,6 +57,6 @@ function checkFunction() {
     } else {
         // p2.style.backgroundColor = invalid;
         confirmed.style.color = invalid;
-        confirmed.innerHTML = "Passwords Do Not Match!"
+        confirmed.innerHTML = "Passwords Don't Match!"
     }
 }
