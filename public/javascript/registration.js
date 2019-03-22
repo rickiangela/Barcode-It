@@ -38,9 +38,8 @@ $(document).ready(function() {
             last_name: last_name,
             first_name: first_name
         }).then(function(data) {
-            console.log(data);
-            // window.location.replace(data)
-            // If there's an error, handle it by throwing up a bootstrap alert
+            window.location.replace(data)
+                // If there's an error, handle it by throwing up a bootstrap alert
         });
     };
 });
