@@ -1,5 +1,6 @@
 var db = require("../models");
 var passport = require("../config/passport");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
 
@@ -32,7 +33,7 @@ module.exports = function(app) {
     });
 
     // Route for getting some data about our user to be used client side
-    app.get("/api/user_data", function(req, res) {
+    app.get("/api/user_data", isAuthenticated, function(req, res) {
         if (!req.user) {
             // The user is not logged in, send back an empty object
             res.json({});
@@ -45,7 +46,7 @@ module.exports = function(app) {
         };
     });
 
-    app.get("/api/barcode/:id", function(req, res) {
+    app.get("/api/barcode/:id", isAuthenticated, function(req, res) {
         //used when editing a barcode
         var userId = req.user.id;
 
@@ -56,7 +57,7 @@ module.exports = function(app) {
         });
     });
 
-    app.post("/api/barcode", function(req, res) {
+    app.post("/api/barcode", isAuthenticated, function(req, res) {
         var userId = req.user.id;
 
         function createBarcode() {
@@ -85,7 +86,7 @@ module.exports = function(app) {
         createBarcode();
     });
 
-    app.put("/api/barcode/:id", function(req, res) {
+    app.put("/api/barcode/:id", isAuthenticated, function(req, res) {
         var userId = req.user.id;
 
         db.Barcode.update({
@@ -99,7 +100,7 @@ module.exports = function(app) {
         });
     });
 
-    app.delete("/api/barcode/:id", function(req, res) {
+    app.delete("/api/barcode/:id", isAuthenticated, function(req, res) {
         var userId = req.user.id;
 
         db.Barcode.destroy({
@@ -109,7 +110,7 @@ module.exports = function(app) {
         });
     });
 
-    app.get("/api/item/:id", function(req, res) {
+    app.get("/api/item/:id", isAuthenticated, function(req, res) {
         var userId = req.user.id;
 
         db.Item.findOne({
@@ -119,7 +120,7 @@ module.exports = function(app) {
         });
     });
 
-    app.post("/api/item", function(req, res) {
+    app.post("/api/item", isAuthenticated, function(req, res) {
         var userId = req.user.id;
 
         db.Item.create({
@@ -132,7 +133,7 @@ module.exports = function(app) {
         });
     });
 
-    app.put("/api/item/:id", function(req, res) {
+    app.put("/api/item/:id", isAuthenticated, function(req, res) {
         var userId = req.user.id;
 
         db.Item.update({
@@ -146,7 +147,7 @@ module.exports = function(app) {
         });
     });
 
-    app.delete("/api/item/:id", function(req, res) {
+    app.delete("/api/item/:id", isAuthenticated, function(req, res) {
         var userId = req.user.id;
 
         db.Item.destroy({
@@ -154,5 +155,44 @@ module.exports = function(app) {
         }).then(function(result) {
             res.json(result);
         });
+    });
+
+    app.put("/api/items", isAuthenticated, function(req, res) {
+        var userId = req.user.id;
+
+        var promiseArray = [];
+
+        if (req.body.checkedIds) {
+            promiseArray.push(
+                db.Item.update(
+                    req.body.barcodeId, {
+                        where: {
+                            UserId: userId,
+                            $or: req.body.checkedIds
+                        }
+                    }
+                )
+            );
+        };
+
+        if (req.body.uncheckedIds) {
+            promiseArray.push(
+                db.Item.update({
+                    BarcodeId: null
+                }, {
+                    where: {
+                        UserId: userId,
+                        $or: req.body.uncheckedIds
+                    }
+                })
+            );
+        };
+
+        Promise.all(promiseArray)
+            .then(function(results) {
+                res.json(results);
+            }).catch(function(err) {
+                console.log(err);
+            });
     });
 };

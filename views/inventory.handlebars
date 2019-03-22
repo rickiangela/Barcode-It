@@ -23,7 +23,7 @@
 <button id="add-item" class="btn waves-effect waves-light blue lighten-1">ADD
     <i class="material-icons right">add_box</i>
 </button>
-<button id="update-item" class="btn waves-effect waves-light">UPDATE
+<button id="update-item" class="btn waves-effect waves-light blue lighten-1">UPDATE
     <i class="material-icons right">sync</i>
 </button>
 <button id="cancel" class="btn waves-effect waves-light red">CANCEL
@@ -54,7 +54,7 @@
             <td>{{#if photo_url}}<a href="{{photo_url}}" target="_blank">View Photo</a>{{/if}}</td>
             <td>{{#if Barcode.barcode_num}}<a href="/barcode/?barcode={{Barcode.barcode_num}}"><img class="barcode"
                         data-id="{{Barcode.barcode_num}}" width=150 /></a>{{/if}}</td>
-            <td><button class="edit-button btn waves-effect waves-light" data-id="{{id}}">Edit</button></td>
+            <td><button class="edit-button btn waves-effect waves-light blue lighten-1" data-id="{{id}}">Edit</button></td>
             <td><button class="delete-button btn waves-effect waves-light modal-trigger red" data-target="modalDelete"
                     data-id="{{id}}">Delete</button></td>
         </tr>

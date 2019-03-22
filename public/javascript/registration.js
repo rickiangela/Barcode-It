@@ -38,8 +38,9 @@ $(document).ready(function() {
             last_name: last_name,
             first_name: first_name
         }).then(function(data) {
-            window.location.replace(data)
-                // If there's an error, handle it by throwing up a bootstrap alert
+            console.log(data);
+            // window.location.replace(data)
+            // If there's an error, handle it by throwing up a bootstrap alert
         });
     };
 });
@@ -50,7 +51,10 @@ function checkFunction() {
     var confirmed = document.getElementById('pMatch');
     var valid = "rgba(39, 189, 1, 0.945)";
     var invalid = "rgba(185, 11, 5, 0.822)";
-    if (p1.value === p2.value) {
+    if (p1.value.trim() == "" && p2.value.trim() == "") {
+        confirmed.style.color = invalid;
+        confirmed.innerHTML = "";
+    } else if (p1.value === p2.value) {
         // p2.style.backgroundColor = valid;
         confirmed.style.color = valid;
         confirmed.innerHTML = "Passwords Match!"

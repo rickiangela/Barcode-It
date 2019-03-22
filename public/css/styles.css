@@ -1,14 +1,9 @@
 body {
-    /* background: #56CCF2;
-    background: -webkit-linear-gradient(to right, #2F51B7, #56CCF2);
-    background: linear-gradient(to right, #2F51B7, #56CCF2); */
     background-color: #E1E6F4;
     font-family: 'Poppins', sans-serif;
 }
 
 .body-content {
-    /* padding-top: 80px;
-    padding-bottom: 80px; */
     background-color: white;
     padding: 20px;
     padding-top: 5px;
@@ -26,12 +21,6 @@ body {
 
 #signout {
     color: blue;
-}
-
-.page-footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
 }
 
 #page-container {
@@ -58,8 +47,7 @@ body {
 
 .media {
     color: #E1E6F4;
-    font-size: 55px;
-    margin: 3px;
+    font-size: 50px;
 }
 
 @media only screen and (max-width: 900px) {

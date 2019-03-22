@@ -1,4 +1,4 @@
-<div id="interactive" class="viewport"></div>
+<div id="interactive" class="viewport container"></div>
 
 <style>
     .overlay {
@@ -50,13 +50,21 @@
         text-align: center;
     }
 
+    #interactive.viewport>canvas,
+    #interactive.viewport>video {
+        max-width: 100%;
+        width: 100%;
+    }
+
     canvas.drawing,
     canvas.drawingBuffer {
         position: absolute;
-        left: 50%;
-        -webkit-transform: translateX(-50%);
-        transform: translateX(-50%);
-        border: 1px solid black;
+        left: 0;
+        top: 0;
+    }
+
+    video {
+        object-fit: contain;
     }
 </style>
 
