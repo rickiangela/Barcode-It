@@ -1,19 +1,19 @@
 <h4>Add a Barcode</h4>
 * All fields are optional
 <div class="row">
-    <div class="input-field col s4">
+    <div class="input-field col s12 m4">
         <i class="material-icons prefix">mode_edit</i>
         <input id="barcode-title" type="text">
         <label for="barcode-title">Title</label>
     </div>
-    <div class="input-field col s4">
+    <div class="input-field col s12 m6">
         <i class="material-icons prefix">mode_edit</i>
         <textarea id="barcode-description" class="materialize-textarea"></textarea>
         <label for="barcode-description">Description</label>
     </div>
 </div>
 <div class="row">
-    <div class="input-field col s4">
+    <div class="input-field col s12 m6">
         <i class="material-icons prefix">photo</i>
         <input id="photo-url" type="text">
         <label for="photo-url">Photo URL</label>
@@ -34,7 +34,7 @@
 <h4>Existing Barcodes</h4>
 <strong>*Click a barcode to view and edit associated items</strong><br><br>
 
-<table class="striped">
+<table class="striped table-responsive">
     <thead>
         <tr>
             <th>Barcode</th>
@@ -61,6 +61,8 @@
         {{/each}}
     </tbody>
 </table>
+
+
 
 <!-- Modal Structure -->
 <div id="modalDelete" class="modal modal-fixed-footer">
@@ -93,6 +95,17 @@
         width: 300px;
         height: 200px;
     }
+
+    @media (max-width: 670px) {
+        .table-responsive {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+  }
+
 </style>
 
 <script src="/javascript/JsBarcode.all.min.js"></script>

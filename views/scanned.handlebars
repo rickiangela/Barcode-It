@@ -5,13 +5,13 @@
         <p>Description: {{barcode.description}}</p>
         {{#if barcode.photo_url}}<img src="{{barcode.photo_url}}" alt="Photo" width=200><br>{{/if}}
     </div>
-    <div class="col s12 l9">
-        <ul class="tabs s12 l9">
-            <li class="tab col s2"><a id="tab" href="#assigned">Assigned</a></li>
-            <li class="tab col s2"><a id="tab" href="#unassigned">Unassigned</a></li>
+    <div style="padding: 0" class="col s12 l8">
+        <ul class="tabs s12">
+            <li class="tab col s3"><a id="tab" href="#assigned">Assigned</a></li>
+            <li class="tab col s3"><a id="tab" href="#unassigned">Unassigned</a></li>
             <li class="tab col s2"><button id="update" class="btn" href="#unassigned">Update</button></li>
         </ul>
-        <div id="assigned" class="col s12">
+        <div id="assigned" class="col s12 l8">
             <table class="striped">
                 <thead>
                     <tr>
@@ -43,7 +43,7 @@
                 </tbody>
             </table>
         </div>
-        <div id="unassigned" class="col s12 blue lighten-2">
+        <div id="unassigned" class="col s12 l8 blue lighten-2">
             <table class="striped">
                 <thead>
                     <tr>
