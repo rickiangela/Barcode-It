@@ -1,17 +1,19 @@
 <div class="row">
     <div class="col s12 l3">
-        <img id="scanned-barcode" data-id="{{barcode.barcode_num}}" />
+        <img id="scanned-barcode" data-barcode="{{barcode.barcode_num}}" data-id="{{barcode.id}}"/>
         <p>Title: {{barcode.title}}</p>
         <p>Description: {{barcode.description}}</p>
         {{#if barcode.photo_url}}<img src="{{barcode.photo_url}}" alt="Photo" width=200><br>{{/if}}
     </div>
-    <div style="padding: 0" class="col s12 l8">
+    <div class="col s12 m9">
         <ul class="tabs s12">
-            <li class="tab col s3"><a id="tab" href="#assigned">Assigned</a></li>
-            <li class="tab col s3"><a id="tab" href="#unassigned">Unassigned</a></li>
-            <li class="tab col s2"><button id="update" class="btn" href="#unassigned">Update</button></li>
+            <li class="tab col s4"><a id="assigned-tab" href="#assigned">Assigned</a></li>
+            <li class="tab col s5"><a id="unassigned-tab" href="#unassigned">Unassigned</a></li>
+            <li class="tab col s3"><button id="update-items" class="btn waves-effect waves-light blue lighten-1">UPDATE
+    <i class="material-icons right">sync</i>
+</button></li>
         </ul>
-        <div id="assigned" class="col s12 l8">
+        <div id="assigned" class="col s12">
             <table class="striped">
                 <thead>
                     <tr>
@@ -30,7 +32,7 @@
                                 <p>
                                     <label>
                                         <input class="checkbox assigned filled-in" type="checkbox" data-changed="false" checked="checked" data-id="{{id}}"/>
-                                        <span class="assignedItem">{{item_name}}</span>
+                                        <span class="assigned-item">{{item_name}}</span>
                                     </label>
                                 </p>
                             </form>
@@ -43,7 +45,7 @@
                 </tbody>
             </table>
         </div>
-        <div id="unassigned" class="col s12 l8 blue lighten-2">
+        <div id="unassigned" class="col s12 blue lighten-2">
             <table class="striped">
                 <thead>
                     <tr>
@@ -62,7 +64,7 @@
                                 <p>
                                     <label>
                                         <input class="checkbox unassigned filled-in" data-changed="false" type="checkbox" data-id="{{id}}"/>
-                                        <span class="unassignedItem">{{item_name}}</span>
+                                        <span class="unassigned-item">{{item_name}}</span>
                                     </label>
                                 </p>
                             </form>
@@ -86,18 +88,19 @@
     #assigned,
     #unassigned {
         height: 500px;
+        overflow: auto;
     }
 
-    #tab {
+    #assigned-tab, #unassigned-tab {
         color: black;
     }
 
-    .assignedItem, .unassignedItem {
+    .assigned-item, .unassigned-item {
         color: black;
     }
 
-    #update {
-        
+    #update-items {
+        display: none;
     }
 
     .assigned[type="checkbox"].filled-in:checked + span:not(.lever):after {
@@ -108,6 +111,10 @@
     .unassigned[type="checkbox"].filled-in:checked + span:not(.lever):after {
         border: 2px solid white;  
         background-color: blue;
+    }
+
+    .table-container {
+        overflow: auto;
     }
 
 
