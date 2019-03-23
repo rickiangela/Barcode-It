@@ -63,7 +63,7 @@ $("#delete-confirm").on("click", function() {
 });
 
 $("#cancel").on("click", function() {
-    $("#barcode-name").val("");
+    $("#barcode-title").val("");
     $("#barcode-description").val("");
     $("#photo-url").val("");
     M.updateTextFields();
