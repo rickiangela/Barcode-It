@@ -3,7 +3,7 @@
         <a href="/barcodes/user"><img id="scanned-barcode" data-barcode="{{barcode.barcode_num}}" data-id="{{barcode.id}}"/></a>
         <p>Title: {{barcode.title}}</p>
         <p>Description: {{barcode.description}}</p>
-        {{#if barcode.photo_url}}<a href="{{barcode.photo_url}}" target="_blank"><img src="{{barcode.photo_url}}" alt="Photo" width=200></a><br><br>{{/if}}
+        {{#if barcode.photo_url}}<a href="{{barcode.photo_url}}" target="_blank">View Photo</a><br><br>{{/if}}
     </div>
     <div class="col s12 m9">
         <ul class="tabs s12">
