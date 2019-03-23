@@ -19,7 +19,8 @@ body {
     height: 100%;
 }
 
-#signout {
+#signout,
+#signoutSide {
     color: blue;
 }
 

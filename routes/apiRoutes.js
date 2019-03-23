@@ -110,6 +110,11 @@ module.exports = function(app) {
         });
     });
 
+    app.get("/api/barcodes", isAuthenticated, function(req, res) {
+        //return all barcodes made for rubber duck giveaway
+        db.Barcode.findAll({}).then(function(result) { res.json(result) });
+    })
+
     app.get("/api/item/:id", isAuthenticated, function(req, res) {
         var userId = req.user.id;
 

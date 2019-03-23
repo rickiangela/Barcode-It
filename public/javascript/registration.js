@@ -38,11 +38,27 @@ $(document).ready(function() {
             last_name: last_name,
             first_name: first_name
         }).then(function(data) {
-            window.location.replace(data)
-                // If there's an error, handle it by throwing up a bootstrap alert
+            if (data.errors[0].message) {
+                if (data.errors[0].message = "email must be unique") {
+                    $("#email_error").text("Email Already Registered!").show();
+                    $("#email_input").val(email);
+                    $("#password_input").val(password);
+                    $("#confirm_pass").val(password);
+                    $("#firstname_input").val(first_name);
+                    $("#lastname_input").val(last_name);
+                } else {
+                    console.log(data);
+                }
+            } else {
+                window.location.replace(data)
+            }
         });
     };
 });
+
+function hideEmailError() {
+    $("#email_error").hide();
+};
 
 function checkFunction() {
     var p1 = document.getElementById('password_input');

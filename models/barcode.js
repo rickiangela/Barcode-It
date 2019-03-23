@@ -13,7 +13,7 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: true
         },
         photo_url: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: true
         }
     });
