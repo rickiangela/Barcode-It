@@ -21,10 +21,12 @@ This project incorporates several NPM packages and programs including:
 
 ### Navigate to the deployed project, and sign in or register for an account.
             
- <img src="./public/images/signInGif.gif>    
+ <img src="./public/images/signInGif.gif">    
 
 ### To add inventory:
      Navigate to the inventory page.
+
+<img src="./public/images/signInGif.gif">
 
 
 ### To add photos: 
