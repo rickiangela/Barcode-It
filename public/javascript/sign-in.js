@@ -28,7 +28,12 @@ $(document).ready(function() {
             password: password
         }).then(function(data) {
             window.location.replace(data);
-            // If there's an error, log the error
+        }).fail(function(err) {
+            if (err.responseText = "Unauthorized") {
+                $("#error-text").text("Email or Password Incorrect!").show();
+            } else {
+                console.log(err);
+            };
         });
     };
 

@@ -101,6 +101,11 @@
             padding: 0 10px;
             color: rgb(21, 80, 21)
         }
+        
+        #email_error {
+            display: none;
+            color: rgba(185, 11, 5, 0.822);
+        }
     </style>
 </head>
 
@@ -123,8 +128,9 @@
                             <label for="lastname_input" class="center-align">Last Name</label>
                         </div>
                         <div class="input-field col s12">
-                            <input id="email_input" type="email" class="validate">
+                            <input id="email_input" type="email" onkeyup="hideEmailError()" class="validate">
                             <label for="email_input" class="center-align">Email</label>
+                            <span id="email_error"></span>
                         </div>
                         <div class="input-field col s12 m6 l6">
                             <input id="password_input" type="password" onkeyup="checkFunction()" class="validate">

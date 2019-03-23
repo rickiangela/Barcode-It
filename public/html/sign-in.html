@@ -101,6 +101,12 @@
             background: #fff;
             padding: 0 10px;
         }
+        
+        #error-text {
+            display: none;
+            color: rgba(185, 11, 5, 0.822);
+            width: 100%;
+        }
     </style>
 </head>
 
@@ -122,6 +128,7 @@
                         <div class="input-field col s12">
                             <input id="password-input" type="password">
                             <label for="password-input">Password</label>
+                            <span id="error-text"></span>
                         </div>
 
                         <div class="input-field col s12">
