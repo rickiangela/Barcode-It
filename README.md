@@ -14,7 +14,7 @@ This project incorporates several NPM packages and programs including:
     **2)** Handlebars<br>
     **3)** dotenv,<br>
     **4)** Passport, and <br>
-    **5)** Express, <br>
+    **5)** Express <br>
 
 
 ## How to use it:
